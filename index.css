@@ -1,0 +1,25 @@
+#calc{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height:800px;
+    background: white;
+}
+#calcBody{
+display: flex;
+flex-direction: column;
+width: 100%;
+flex:20;
+}
+
+#screen{
+    flex:1;
+    height: 100px;
+}
+
+.number{
+    flex:1;
+}
+.column{
+
+}
