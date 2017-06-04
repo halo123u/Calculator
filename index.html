@@ -10,24 +10,85 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="index.css">
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">    
     </head>
     <body>
         <!--[if lt IE 7]>  
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div id="calc">
-            <div id="screen">
-
+        <h1 class=" animated bounceInLeft">My Amazing Calculator</h1>
+        <form id="calc"name="calc">
+            <div id="screen" class="animated bounceInRight">
+                <input id="Input" type="text" name="input"  >
             </div>
             <div id="calcBody">
-                <div class="column">
-                                    <input class="number" type="button" value="&/">
-                <input class="number" type="button" value="7">
-                <input class="number" type="button" value="4">
-                <input class="number" type="button" value="1">
-                <input class="number" type="button" value=".">
+                <div class="row">
+                    <input class="number animated fadeInDown" type="button" value="&divide" onclick="number('/')">
+                    <input class="number animated fadeInUp" type="button" value="&times" onclick="number('*')">
+                    <input class="number animated fadeInDown" type="button" value="-" onclick="number('-')">
+                    <input class="number animated fadeInUp" type="button" value="+" onclick="number('+')">
+                </div>
+                <div class="row">
+                    <input class="number animated fadeInDown" type="button" value="7" onclick="number('7')">
+                    <input class="number animated fadeInUp" type="button" value="8" onclick="number('8')">
+                    <input class="number animated fadeInDown" type="button" value="9" onclick="number('9')">
+                    <input class="number animated fadeInUp" type="button" value="AVG" onclick="avg()">
+                </div>
+                <div class="row">
+                    <input class="number animated fadeInDown" type="button" value="4" onclick="number('4')">
+                    <input class="number animated fadeInUp" type="button" value="5" onclick="number('5')">
+                    <input class="number animated fadeInDown" type="button" value="6" onclick="number('6')">
+                    <input class="number animated fadeInUp" type="button" value="AC" onclick="reset()">
+                </div>
+                <div class="row">
+                    <input class="number animated fadeInDown" type="button" value="1" onclick="number('1')">
+                    <input class="number animated fadeInUp" type="button" value="2" onclick="number('2')">
+                    <input class="number animated fadeInDown" type="button" value="3" onclick="number('3')">
+                    <input class="number animated fadeInUp" type="button" value="%" onclick="number('%')">
+                </div>
+                <div class="row">
+                    <input class="number animated fadeInDown" type="button" value="." onmouseover="" onclick="number('.')">
+                    <input class="number animated fadeInUp" type="button" value="0" onclick="number('0')">
+                    <input class="number animated fadeInUp" id="equ" type="button" value="=" onclick="ans()">
                 </div>
             </div>
-        </div>
+            <script>
+            
+                var end = true;
+                function number(a){
+                    if(end){
+                       calc.input.value+=a;
+                    } else {
+                        reset();
+                        calc.input.value+= a;
+                    }
+                }
+
+                function ans(){
+                    if(calc.input.value !== ""){
+                    calc.input.value =eval( calc.input.value);
+                    } else {
+                        calc.input.value = "0";
+                    } 
+                    end =false; 
+                }
+
+                function reset(){
+                    calc.input.value="";
+                    end=true;
+                }
+
+                function avg(){
+                    var a = calc.input.value.toString();
+                    var b =[];
+                     for(i=0;i<a.lenght; i++){
+                        b=a.replace( "+", " ");
+                     }
+                //    calc.input.value = eval(calc.input.value);
+                    console.log(a);
+                }
+            </script>
+        </form>
     </body>
 </html>
