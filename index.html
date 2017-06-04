@@ -81,12 +81,10 @@
 
                 function avg(){
                     var a = calc.input.value.toString();
-                    var b =[];
-                     for(i=0;i<a.lenght; i++){
-                        b=a.replace( "+", " ");
-                     }
-                //    calc.input.value = eval(calc.input.value);
-                    console.log(a);
+                    a=a.split("+");
+                    calc.input.value=eval(calc.input.value)/a.length;
+                    end=false;
+                    
                 }
             </script>
         </form>
