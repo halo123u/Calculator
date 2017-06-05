@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>simple Calculator</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="index.css">
@@ -17,11 +17,14 @@
         <!--[if lt IE 7]>  
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <!--heading for the webpage -->
         <h1 class=" animated bounceInLeft">My Amazing Calculator</h1>
         <form id="calc"name="calc">
+            <!-- hold the numbers being presssed -->
             <div id="screen" class="animated bounceInRight">
                 <input id="Input" type="text" name="input"  >
             </div>
+            <!--body of the calculator  -->
             <div id="calcBody">
                 <div class="row">
                     <input class="number animated fadeInDown" type="button" value="&divide" onclick="number('/')">
@@ -53,39 +56,7 @@
                     <input class="number animated fadeInUp" id="equ" type="button" value="=" onclick="ans()">
                 </div>
             </div>
-            <script>
-            
-                var end = true;
-                function number(a){
-                    if(end){
-                       calc.input.value+=a;
-                    } else {
-                        reset();
-                        calc.input.value+= a;
-                    }
-                }
-
-                function ans(){
-                    if(calc.input.value !== ""){
-                    calc.input.value =eval( calc.input.value);
-                    } else {
-                        calc.input.value = "0";
-                    } 
-                    end =false; 
-                }
-
-                function reset(){
-                    calc.input.value="";
-                    end=true;
-                }
-
-                function avg(){
-                    var a = calc.input.value.toString();
-                    a=a.split("+");
-                    calc.input.value=eval(calc.input.value)/a.length;
-                    end=false;
-                    
-                }
+            <script src="index.js">\
             </script>
         </form>
     </body>
